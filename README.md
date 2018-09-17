@@ -1,5 +1,5 @@
 # TAREA 02 - IDENTIFICACION DE CONCEPTOS DISEÑO DE SOFTWARE
-=========================================================
+*******************
 
 Tarea a la actividad 02 de la Maestria en Ingenieria de Software - 2018
 
