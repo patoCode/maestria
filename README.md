@@ -5,14 +5,14 @@ Tarea a la actividad 02 de la Maestria en Ingenieria de Software - 2018
 
 
 *******************
-Supuesto
+SUPUESTO
 *******************
 
 Se necesita un script que "sume y reste valores", se diseño el siguiente script "operacion.php"
 
-*******************
-Conceptos aplicados
-*******************
+***********************
+CONCEPTOS IDENTIFICADOS
+***********************
 1. Se tiene una clase la cual permite realizar las operaciones de suma y resta
 2. Es facil de mantener si bien esta clase aplica el patron singleton, es facil de mantener ya que se trata de un objeto basico de PHP
 3. El codigo es simple y poderoso, ya que la necesidad es sumar y restar el codigo presentado sumara y restara
@@ -22,14 +22,14 @@ Conceptos aplicados
 
 
 **************
-Estuadiante
+ESTUDIANTE
 **************
 Denis Rodriguez Mendoza
 72762638
 e3gan.root@gmail.com
 
 *********
-Recursos
+RECURSOS
 *********
 - operacion.php
 
