@@ -1,13 +1,14 @@
-###################
-operacion.php
-###################
+TAREA 02 - IDENTIFICACION DE CONCEPTOS DISEÑO DE SOFTWARE
+=========================================================
+
 Tarea a la actividad 02 de la Maestria en Ingenieria de Software - 2018
+
 
 *******************
 Supuesto
 *******************
-Se necesita un script que "sume y reste valores", se diseño el siguiente script "operacion.php"
 
+Se necesita un script que "sume y reste valores", se diseño el siguiente script "operacion.php"
 
 *******************
 Conceptos aplicados
