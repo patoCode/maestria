@@ -1,67 +1,87 @@
 <?php
-// Se creo una interfaz llamada Operacion, el cual agrupara por comportamiento las operaciones
-
-interface OperacionSuma{
-    public function doSuma($numero);
+/* INTERFACE */
+interface Operacion
+{
+    public function Operar($razon_de_cambio);
 }
-interface OperacionResta{
-    public function doResta($numero);
-}
-abstract class Operacion
-{ 
-    public $numero;
+/* COMPORTAMIENTOS */
+class OperacionSuma implements Operacion{
+    private $numero;
     public function __construct($numero)
     {
         $this->numero = $numero;
     }
-}
-
-class Suma extends Operacion implements OperacionSuma{    
-    public function __construct($numero){
-        parent::__construct($numero);
-    }
-    public function doSuma($sumando){
-        echo "SUMA ".$this->numero." + ".$sumando." = ".($this->numero+$sumando);
-    }    
-}
-class Resta extends Operacion implements OperacionResta{
-    public function __construct($numero){
-        parent::__construct($numero);
-    }
-    public function doResta($sustraendo){
-        echo "RESTA ".$this->numero." - ".$sustraendo." = ".($this->numero-$sustraendo);
+    public function Operar($razon_de_cambio)
+    {
+        echo  ($this->numero + $razon_de_cambio);
     }
 }
-
-function operar($operacion, $numero_para_operar) {
-    if ($operacion instanceof Operacion) {
-      if ($operacion instanceof OperacionSuma) {
-        $operacion->doSuma($numero_para_operar);
-      }
-      if ($operacion instanceof OperacionResta) {
-        $operacion->doResta($numero_para_operar);
-      }       
-    } else {
-      die("No me enviaste un operador");
+class OperacionResta implements Operacion{
+    private $numero;
+    public function __construct($numero)
+    {
+        $this->numero = $numero;
+    }
+    public function Operar($razon_de_cambio)
+    {
+        echo ($this->numero - $razon_de_cambio);
     }
 }
-
-
-echo "===========================\n";
-echo "OPERACIONES SUMA Y RESTA\n";
-echo "===========================\n";
-$razon_de_cambio = 10;
-$operaciones = array(
-    new Suma(20),
-    new Suma(15),
-    new Resta(150),
-    new Suma(1),
-    new Suma(30),
-    new Resta(5),
-    new Resta(15)
-  );
-foreach($operaciones as $operacion) 
+class OperacionMultiplicacion implements Operacion{
+    private $numero;
+    public function __construct($numero)
+    {
+        $this->numero = $numero;
+    }
+    public function Operar($razon_de_cambio)
+    {
+        echo ($this->numero * $razon_de_cambio);
+    }
+}
+/* SUPER CLASE*/
+class Calculador
 {
-    operar($operacion,$razon_de_cambio);
-    echo "\n";
+    public $resta;
+    public $suma;
+    public $multiplicar;
+    public $numero;
+    function __construct($numero)
+    {
+        $this->resta  = new OperacionResta($numero);
+        $this->suma   = new OperacionSuma($numero);
+        $this->multiplicar = new OperacionMultiplicacion($numero);
+        $this->numero = $numero;
+    }
+    public function Operar($operacion, $razon_de_cambio){
+        if ($operacion instanceof Operacion) {
+              if ($operacion instanceof OperacionSuma) {
+                $operacion->Operar($razon_de_cambio);
+              }
+              if ($operacion instanceof OperacionResta) {
+                $operacion->Operar($razon_de_cambio);
+              }
+              if ($operacion instanceof OperacionMultiplicacion) {
+                $operacion->Operar($razon_de_cambio);
+              }
+            }
+            else{
+              die("No me enviaste un operador");
+            }
+    }
 }
+
+$suma = new Calculador(15);
+$suma->Operar($suma->suma, 20);
+echo "<br>";
+$multiplicacion = new Calculador(45);
+$multiplicacion->Operar($multiplicacion->multiplicar, 10);
+
+
+
+
+
+
+
+
+
+
